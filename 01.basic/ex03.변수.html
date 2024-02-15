@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+
+    //0.선언과 초기화(할당) 구분 
+    var test; // 선언부를 호이스팅 이라고 한다. 
+    var test = 1; // 재선언&재할당
+    test = 1; //초기화 
+
+    //1.변수 키워드 var (선언,재선언,초기화)
+    var aValue; 
+    var aValue = '재선언&재할당'; 
+    aValue = '초기화';
+    console.log(aValue,typeof(aValue));
+
+    //2.변수 키워드 let (선언, 초기화)
+    let bValue = '선언';
+    let bValue = '재선언'; 
+    bValue = '초기화';
+    console.log(bValue);
+
+    //3.변수 키워드 const (선언과 초기화를 동시에 )
+    const cValue; 
+    const cValue = '선언';
+    const cValue = '재선언'; 
+    cValue = '초기화'; 
+    console.log(cValue);
+
+
+    
+  </script>
+
+
+</body>
+</html>

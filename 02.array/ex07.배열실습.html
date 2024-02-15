@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta subjectName="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id="data">
+
+  </div>
+  <script>
+    //리팩토링 코드
+    
+    //과목 수 입력 받기
+    let subNum = Number(prompt("과목수를 입력하세요>>"));
+    
+    // 과목들 정보(이름,점수) 담을 객체 배열 초기화 
+    let subjects = []; 
+
+    //과목 정보 입력 받기 
+    for(let i=0; i<subNum; i++){
+      let subjectName = prompt(`과목이름을 입력하세요 (${i+1}/${subNum}) >> `); 
+      let subjectScore = parseInt(prompt(`${subjectName}의 점수를 입력하세요 >>`));
+
+      //입력받은 정보를 push
+      subjects.push({
+        name: subjectName,
+        score : subjectScore
+      });
+    }
+
+
+    //총합 및 평균 계산 
+    //reduce : 합계 구하는 메소드 
+    //배열.reduce((누적값,현재값,인덱스,요소) => {리턴 결과},초기값)
+    let totalScore = subjects.reduce((sum, subject) => sum + subject.score, 0);
+    let averageScore = totalScore / subNum ; //평균
+
+    //하나의 값으로 뭉치고 싶으면 reduce
+    //배열의 루프를 돌고 싶으면 forEach, 
+
+    //배열이 원소를 바꾼 배열을 얻고 싶으면 map, 
+    //map은 반복문을 돌려 배열 안의 요소들을 1대1로 짝지어준다(매핑)
+    //기존 배열을 변경하지 않고 새로운 배열을 반환
+
+    //배열.map((요소,인덱스,배열) => {리턴 요소})
+    //map함수(매개변수 화살표함수) : 
+    //      subject.name : 매개변수.name속성 
+    //      join('') : map함수로 생성된 태그들을 문자열로 결합. 인자로 빈 문자열을 ('')사용하면 구분자 없이 결합됨
+
+    //결과 출력하기
+    let data = document.getElementById("data");
+    let resultHTML = `
+      <table border='1px solid black' align='center'>
+        <tr>
+          ${subjects.map(subject => `<th>${subject.name}</th>`).join('')}
+          <th>총합</th>
+          <th>평균</th>
+        </tr>
+        <tr align="center">
+          ${subjects.map(subject => `<td>${subject.score}</td>`).join('')}
+          <td>${totalScore}</td>
+          <td>${averageScore}</td>
+        </tr>
+      </table>
+    `;
+
+    data.innerHTML += resultHTML;
+  </script>
+</body>
+</html>

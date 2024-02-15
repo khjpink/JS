@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <h1 id="tit">onclick 실습</h1>
+  <h6>특징 : 모든 브라우저에서 사용 가능하지만, 이벤트를 여러 개 등록하지 못하고,
+    마지막으로 등록한 이벤트만 등록이 가능</h6>
+  <p id="link-text"></p>
+  <p id="list"></p>
+
+  <!-- form태그에서 클릭하려면 input태그를 쓰고 아니라면 button태그 사용 -->
+  <button onclick="h1Change()">클릭</button>
+  <button onclick="createLink()">링크생성</button>
+  <button onclick="createList()">목록생성</button>
+
+  <script>
+
+    let h1Change = function(){
+      const tit = document.getElementById('tit');
+      tit.innerText = "변경완료!";
+      tit.style.color = "bule";
+      tit.style.background = "aqua";
+      tit.style.border = "1px solid blue";
+    }
+
+    let createLink = function(){
+      const linkText = document.getElementById('link-text');
+      linkText.innerHTML = "<a href='http://www.naver.com'>네이버로 이동</a>";
+    }
+
+      /*
+      //한번만 추가
+          let createList = function(){
+              const list = document.getElementById("list");
+              list.innerHTML = `
+                              <ul>            
+                                  <li>HTML</li>
+                                  <li>CSS</li>
+                                  <li>JavaScript</li>
+                              </ul>
+              `;
+          }
+      */
+
+        //반복문으로 태그 생성
+        let createList = function(){
+          const list = document.getElementById("list");
+
+          let arr = ["HTML","CSS","JavaScript"];
+
+          let resultHTML = "<ul>";
+          for(let i=0; i<arr.length; i++){
+              resultHTML += `<li>${arr[i]}</li>`;
+          }
+          resultHTML += "</ul>";
+
+          list.innerHTML += resultHTML;
+      }
+
+  </script>
+</body>
+</html>

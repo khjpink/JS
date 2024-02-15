@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    //배열 : 여러 변수를 하나의 묶음으로 다루는 것
+
+    //java와 js의 배열선언 방법
+      //java 배열선언 : int[] array = new int[5];
+      //js   배열선언 : let array = [];
+
+    //java와 js차이점
+      //js에는 java처럼 데이터 크기를 지정하지 않는다
+      //js에서는 데이터 크기가 가변적으로 늘었다 줄었다 할 수 있다
+      //마치 java의 arrayList처럼 사용 가능
+      //js는 dynamically type language(타입을 동적으로 정의하는 언어이다)
+        // 왜 js는 동적으로 정의할 수 있는가?
+        // java는 오래된 언어라, 당시에 컴퓨터 성능이 좋지 않아 공간이 한정적이었음
+        // js는 최신언어라 컴터 사용이 뛰어나, 데이터 크기를 지정하지 않아도 됨
+
+
+    //1.배열 선언하기 
+      //java와 js차이점 :
+        //java는 배열에 5개를 선언하면 무조건 5까지 작성됨
+        //js는 5개로 선언해도 초과가능, 공간이 동적이고 가변적이라 
+    let numList = [];
+    console.log(numList);
+
+    let numList2 = new Array(5);
+    console.log(numList2);
+
+    let list = new Array("김","이");
+    console.log(list);
+
+    //2.배열 생성하기
+    numList = new Array(1,2,3);
+    console.log(numList);
+
+    numList2 = [1,2,3];
+    console.log(numList2);
+
+    let numList3 = [1,2,3];
+    console.log(numList3); //배열 선언과 초기화 동시에 
+
+    //3.인덱스를 활용해서 저장
+      //배열의 인덱스는 0부터 시작
+      //배열의 변수명과 []사이에 원소의 인덱스를 적어서 접근
+      //반드시 배열 선언 후 접근
+      //차이점
+        //java에서는 같은 자료형이면서 고정적으로 배열에 데이터 저장
+        //js에서는 아래처럼 다양한 자료형을 가변적으로 저장가능
+    let arr = [];
+    arr[0] = 1; //숫자형
+    arr[1] = "가나다" //문자형
+    arr[2] = true; //불리언형
+    console.log(arr);
+
+    //4.함수로 데이터 추가
+    arr.push(3);
+    arr.push(4);
+    console.log(arr);
+
+    //5.인덱스로 데이터 접근
+    console.log(arr[0]);
+    
+    //6.반복문으로 배열 데이터 전부 출력
+    for(let i=0; i<arr.length; i++){
+      console.log(i+": "+arr[i]);
+    }
+    //7.배열의 길이
+    console.log("배열 길이 > "+arr.length);
+    
+    //8.배열 자르기(삭제) splice
+    console.log(numList3);
+    numList3.splice(0,1) // (시작 인덱스, 시작 인덱스부터 삭제할 인덱스 개수,"추가할데이터") 
+    console.log(numList3);
+
+    //9. 데이터의 인덱스 번호 찾기 indexOf
+    let index = arr.indexOf("가나다");
+    console.log(index);
+
+    //10. 데이터가 있는지 찾기 includex -> 불리언형으로 반환 
+    let isCheck = arr.includes("가나다");
+    console.log(isCheck); //true
+
+
+  </script>
+</body>
+</html>

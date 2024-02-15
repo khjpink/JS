@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    //숫자가 5개인 배열
+    let list = [10,20,30,40,50];
+
+  //가장 큰 수 출력하기
+    //1.반복문으로 출력
+    let maxNum = list[0];
+    for(let i=0; i<list.length; i++){
+      // 10 이 10보다 작다면 = f
+      // 10 이 20보다 작다면 = t
+      if(maxNum < list[i]){
+        maxNum = list[i];
+      }
+    }
+    alert("최댓값 : "+maxNum);
+    
+    //2.함수로 출력
+    let maxNum2 = Math.max.apply(null,list);
+    alert("최댓값2 : "+maxNum2);
+
+  </script>
+</body>
+</html>

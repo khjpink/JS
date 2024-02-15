@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    
+    // 1. 숫자를 2개 입력받는다
+    // 2. 처음받은 숫자부터 두번째 받은  숫자까지의 합을 구하기
+    let num1 = Number(prompt('시작할 숫자를 입력하세요'));
+    let num2 = Number(prompt('종료될 숫자를 입력하세요'));
+
+    let total = 0;
+    for(let i=num1; i<=num2; i++){
+      total += i;
+    }
+  
+    document.write(`${num1}부터 ${num2}까지 더 한 값은 ${total} 입니다`);
+    console.log(`${num1}부터 ${num2}까지 더 한 값은 ${total} 입니다`)
+
+    
+  </script>
+</body>
+</html>

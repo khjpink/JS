@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+
+    //난수 생성 함수 
+    function rand(min, max){
+      return Math.floor(Math.random() * (max - min + 1)) + min; 
+    }
+    //랜덤 수 범위 지정1
+    const result = rand(1,100); 
+    console.log("정답 : ",result);
+
+    //랜덤 수 범위 지정2
+    // 0~1미만의 부동소수점 숫자를 반환. 이 숫자에 100을 곱하면 범위는 0이상 100미만이 됨.
+    //parseInt가 부동소수점을 정수로 변환. 0이상 99이하의 정수가 되고, +1을 해서 1~100이하의 정수가 됨
+    let computer = parseInt(Math.random()*100)+1;
+
+    // 정답 맞추기 게임 루프 
+    while(true){ //true일때 반복한다 
+      
+      //prompt함수는 문자열을 반환한다. 
+      //parseInt정수로 형변환하고(string, radix)
+      // - radix : 변환할 때 사용할 진수(기수)를 지정한다. 10진수로 변환 
+      let num = parseInt(prompt("정답 입력"), 10)
+      console.log("입력한 정답  : ",num, typeof(num));
+
+      if(num === result){
+        console.log("정답입니다.")
+        break;
+
+      }else if(num < result){
+        alert("입력한 숫자"+num+"보다 큽니다.")
+        continue;
+
+      }else if(num > result){
+        alert("입력한 숫자"+num+"보다 작습니다.")
+        continue;
+      }else{
+        console.log("숫자가 아닙니다. 다시입력하세요")
+      }
+    }
+
+
+
+    
+  </script>
+</body>
+</html>

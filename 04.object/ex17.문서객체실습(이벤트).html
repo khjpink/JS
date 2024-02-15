@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <h2 id="msg1">addEventListener 이벤트 실습</h2>
+  <h6>특징 : 이벤트를 여러 개 등록 할 수 있음</h6>
+  <div id="msg2"></div>
+  <h4 id="msg3"></h4>
+
+  <button id="btn1">클릭</button>
+  <button id="btn2">링크생성</button>
+  <button id="btn3">목록생성</button>
+
+  <script>
+
+    //클릭
+    document.getElementById('btn1').addEventListener('click',function(){
+      document.getElementById('msg1').style.color = 'blue';
+      document.getElementById('msg1').style.background = 'orange';
+      document.getElementById('msg1').style.border = '2px solid blue';
+    });
+
+    //링크생성
+    const msg2 = document.getElementById("msg2");
+    document.getElementById('btn2').addEventListener('click', function(){
+      msg2.innerHTML = "<a href='https://www.naver.com'><font size=3.0em;>네이버로 이동</a><br>";
+    })
+
+
+    const msg3 = document.getElementById('msg3');
+    //목록생성
+    document.getElementById('btn3').addEventListener('click',function(){
+      msg3.innerHTML = `
+                      <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                      </ul>
+                      `
+    })
+  </script>
+</body>
+</html>

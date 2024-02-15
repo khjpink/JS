@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 외부에 있는 js파일 연결 -->
+  <!-- 같은 폴더에 있을때 . 을 작성 -->
+  <script src="./ex08.외부.js"></script>
+</head>
+<body>
+  <script>
+    //내부방식 : head에 작성 : html문서가 읽다가 스크립트 태그를 먼저 읽고 뷰화면을 보여줌
+    console.log("내부방식")
+  </script>
+
+  <!-- 인라인 : 태그에 직접 기능을 넣어줌  -->
+  <button onmouseenter="alert('마우스 올리기')">마우스 올리기</button>
+  <button onmousewheel="alert('스크롤')">스크롤</button>
+  <button onclick="ck()">외부 함수 불러오기</button> <!-- ex08.외부.js -->
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body id="bodyTag">
+  
+  <a href="#">안녕하세요!</a>
+  <br><br>
+  
+  <button id="btn1">Design Change!</button>
+  <button id="btn2">Revert</button>
+  <br>
+
+  <ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+  </ul>
+
+  <h1>반갑습니다.</h1>
+  <p>즐거운 js 수업입니다.</p>
+
+  <script>
+    //js 단축키
+    //변수명 일괄 변경 : Ctrl + Shift + L
+
+    //버튼 클릭 시 색상 바꾸기 
+    document.getElementById('btn1').addEventListener('click',function(){
+      document.getElementById('bodyTag').style.background = 'hotpink';
+      document.getElementById('bodyTag').style.color = 'whitesmoke';
+    });
+
+    document.getElementById('btn2').addEventListener('click',function(){
+      document.getElementById('bodyTag').style.background = 'orange';
+      document.getElementById('bodyTag').style.color = 'whitesmoke';
+      
+    });
+
+  </script>
+</body>
+</html>

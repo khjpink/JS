@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      text-align: center;
+    }
+    #like{
+      color: blue;
+    }
+    
+  </style>
+</head>
+<body>
+  <div>
+    <h1>평점 : 
+      <span id="like">0</span>
+      <br>
+    <button type="button" onclick="plus()">+1증가</button>
+    <button type="button" onclick="minus()">-1감소</button>
+  </h1>
+  </div>
+  
+  <script>
+    //버튼 클릭시 증가, 감소 
+    //함수표현식
+
+    //전역변수 
+    let like = document.getElementById('like');
+    like.innerText = parseInt(like.innerText) // 0
+    //console.log(like.innerText, typeof(like.innerText)); // 0 string
+
+    let plus = function(){
+
+      //값이 누적되는 이유가?      
+      //like가 전역변수임
+      //함수 내에서 like.innerText 변수에 수정하면 이 값이 전역변수에 반영되고, 이로 인해 값이 누적
+      like.innerText = parseInt(like.innerText)+1; // 1 = 0+1  
+      like.style.color = "red";
+    }
+    let minus = function(){
+      // like를 정수로 변환후, 그 값이 문자열 "0"이 아닌 다른 값이라면
+      if(parseInt(like.innerText) !== 0){ 
+        like.innerText = parseInt(like.innerText) - 1;  
+        like.style.color = "blue";
+      }
+      
+    }
+    
+  </script>
+
+</body>
+</html>

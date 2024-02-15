@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    let fruits = ["apple", "avocado", "banana", "blueberry", "cherry", "dragon fruit", 
+    "fig", "grape", "kiwi", "lime", "mango", "orange", "oriental melon", "pear",
+        "peach", "pineapple", "shine muscat", "strawberry", "tomato", 
+    "water melon", "yuja"];
+    
+    console.log(fruits);
+
+    //새로운 배열에 저장하기
+
+    //console.log(fruits.includes("pear"));
+    //console.log(fruits.indexOf("pear")); 13 
+
+    let startIndex = fruits.indexOf("pear")
+    let endIndex = fruits.indexOf("pineapple");
+
+    //console.log(fruits.includes("pineapple"));
+    console.log(fruits.indexOf("pear")); 13 
+    console.log(fruits.indexOf("pineapple")); 13 
+
+    console.log(fruits.slice(startIndex,endIndex+1));
+    console.log(fruits);
+    
+
+    
+
+  </script>
+
+</body>
+</html>

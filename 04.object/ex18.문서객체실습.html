@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      text-align: center;
+    }
+    #like{
+      color: blue;
+    }
+    
+  </style>
+</head>
+<body>
+  <div>
+    <h1>평점 : 
+      <span id="like">0</span>
+      <br>
+<!--     <button type="button" onclick='count("plus")'>+1증가</button>
+    <button type="button" onclick='count("minus")'>-1감소</button> -->
+    <button type="button" onclick='changeRating(1)'>+1증가</button>
+    <button type="button" onclick='changeRating(-1)'>-1감소</button>
+  </h1>
+  </div>
+  
+  <script>
+    //버튼 클릭시 증가, 감소 
+    //함수선언식
+/*    function count(type){
+      const like = document.getElementById('like'); // <span id="like">0</span>
+
+      let number = parseInt(like.innerText); //0
+
+      if(type === 'plus'){
+        number = number+1;
+      }else if(type === 'minus'){
+        number = number-1;
+      }
+      like.innerText = number;
+    }
+*/    
+    //리팩토링 코드 
+    function changeRating(change){ //매개변수를 받아서, 해당 값만큼 평점을 증가 또는 감소  
+      let like = document.getElementById('like');
+      let currentRating = parseInt(like.innerText);  // 0
+
+      //조건 : 음수인지 확인하기
+      //현재평점 + (함수에 전달된 매개변수) >= 0, 현재평점+추가된평점값이 0이거나 0이상이라면
+      if(currentRating + change >= 0){ 
+        like.innerText = currentRating + change; 
+                          //change가 1일 경우 red, 아니면 blue
+        like.style.color = (change === 1) ? "red" : "blue";
+      }
+    }
+    
+  </script>
+
+</body>
+</html>

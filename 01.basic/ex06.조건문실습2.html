@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body id="bodyTag">
+  <script>
+  
+    let java = Number(prompt("자바 점수 입력"));
+    let web = Number(prompt("웹 점수 입력"));
+    let python = Number(prompt("파이썬 점수 입력"));
+
+    let sum = java+web+python;
+    console.log(`입력받은 총점 >> ${sum}`);
+
+    //parseInt형변환해서 소수점이 없이 출력되도록 할것
+    let avg = parseInt(sum/3);
+    console.log(`입력받은 평균 >> ${avg}`);
+  
+
+    //당신은 평균은 200이고 학점은 a입니다.
+    if(avg >=90){
+      grade = 'A'
+    }else if(avg >= 80){
+      grade = 'B'
+    }else if(avg >= 70){
+      grade = 'C'
+    }else{
+      grade = 'F'
+    }
+    console.log(`당신은 평균은 ${avg}이고 학점은 ${grade}입니다.`)
+
+  </script>
+</body>
+</html>

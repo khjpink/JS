@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="lib/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+  <h1>h1태그1</h1>
+  <h1 id="tit">h1태그2</h1>
+  
+  <!-- 
+    제이쿼리(Jquery)란? :
+     웹사이트에서 js를 쉽게 활용할 수 있도록 도와주는 js라이브러리
+     제이쿼리를 이용하면 문서 객체 모델(DOM)과 이벤트 처리를 손쉽게 구현할 수 있음
+     Ajax 응용 프로그램 및 플러그인도 제이쿼리를 활용하여 빠르게 개발 가능
+   -->
+  
+  <script>
+    //제이쿼리 선언하거나 접근할때 $문자를 사용하는데 jQuery문자의 별칭임
+    //제이쿼리는 태그를 넣으면 선택자로 인식
+      // 선택자 : html 요소를 선택해서 가져온다 
+      
+    let h1 = document.getElementsByTagName("h1");
+    //console.log(h1);
+
+    //h1태그를 가져옴
+    const $h1Tag = $("h1");
+    //console.log($h1Tag);
+
+    //아이디로 접근 
+    const $h1Tag2 = $("#tit");
+    //console.log($h1Tag2);
+
+    //h1태그 접근
+    //const test = document.getElementById("$h1Tag").innerText
+    //const test = document.getElementById("$h1Tag").innerHTML
+    //console.log($h1Tag.text());
+    //console.log($h1Tag.html());
+  
+    //h1태그 내용 변경
+    //$h1Tag.text("변경성공");
+    //$h1Tag.text("<a href='#'>변경성공</a>");
+    
+    //h1태그 스타일 변경
+    $h1Tag.css({
+      color: "green",
+      backgroundColor:"pink"
+    });
+
+    $h1Tag.on("click", function(){
+      alert("안녕")
+    });
+
+  </script>
+</body>
+</html>

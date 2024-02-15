@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    // 1. 랜덤한 수를 뽑아준다
+    // Math.random 내장함수 : 0부터 1까지 난수 발생시킴 / 소수점을 때기 위해 parseInt해줌 
+    let ranNum = parseInt(Math.random()*100);
+    console.log(ranNum);
+
+    // 2. 사용자에게 숫자를 입력받아준다.
+    let num = Number(prompt('숫자를 입력하세요'));
+
+    // 3. 숫자가 > 랜덤보다 크면, '입력한 숫자보다 작은 수 입니다'를 출력한다
+    //    숫자가 < 랜덤보다 작으면, '입력한 숫자보다 큰 수 입니다'를 출력한다
+    //    숫자가 = 랜덤과 같을때 '정답입니다. 축하합니다.' 를 출력한다    
+    while(true){
+      if(num > ranNum ){
+        alert('입력한 숫자보다 작은 수 입니다.')
+      }else if(num < ranNum){
+        alert('입력한 숫자보다 큰 수 입니다.');
+      }else{
+        alert('정답입니다.');
+      }break;
+    }
+
+  </script>
+</body>
+</html>

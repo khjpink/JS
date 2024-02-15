@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    //배열 베소드
+    let list = [];
+    console.log(list);
+
+    //1.배열의 마지막 인덱스에 데이터 추가 / push(끝인덱스번호)
+    list.push("데이터1");
+    console.log(list);
+    list.push("데이터2");
+    console.log(list);
+
+    //2.배열의 맨마지막 인덱스 삭제
+    list.pop();
+    console.log(list);
+
+    //3.배열의 맨앞에 데이터 추가
+    list.unshift("맨 앞 추가");
+    list.unshift(10);
+    list.unshift(12);
+    list.unshift(14);
+    console.log(list);
+
+    //4.배열의 맨앞 인덱스 데이터 삭제
+    list.shift("맨 앞 추가");
+    console.log(list);
+
+    //5.내가 원하는 인덱스 추가 
+    list.splice(0,2,"데이터추가1","데이터추가1"); //0번 인덱스 부터 2번인덱스 미만에 데이터 추가 
+    console.log(list);
+    //6.내가 원하는 인덱스 삭제
+    list.splice(0,2);
+    console.log(list);
+
+  </script>
+</body>
+</html>

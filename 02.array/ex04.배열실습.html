@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+
+  //문제
+    //랜덤수는 : 4,8,20,27,35,46,50,52,93,98
+    //랜덤수 개수는 : 10
+    //가장작은수는 4이고, 가장큰수는 98 입니다.
+
+  //문제풀이
+  //1. 랜덤 정수를 생성하는 함수 만들기 *****
+  /*
+    function getRandom(min, max){
+      //Math.floor: 소수점 이하를 버리고 정수 부분만 남김
+      //Math.random: 0이상 1미만의 난수 생성
+      //(max - min +1 )은 원하는 범위의 정수를 얻기 위해 사용 
+      //최종적으로 min부터 max(포함)의 랜덤 정수 반환 
+
+      // 0이상 1미만의 난수값에 바로 min과 max를 곱하면, 0이상 max-min 미만의 범위의 난수만을 얻는다.
+      // 이를 보안하기 위해 max-min+1 하면 0이상부터 max-min+1미만의 범위의 난수를 얻는다.
+      // 여기에 +min을 하면 최종적으로 min부터 max까지 범위의 랜덤 정수를 얻는다. 
+      return Math.floor(Math.random() * (max - min + 1) + min); 
+    }*/
+    //console.log("랜덤 정수 생성",getRandom(1,100)); 
+
+  //2. 반복문으로 10번 반복하기
+    /*for(let i=1; i<=10; i++){
+      //console.log(i);
+    }*/
+
+  //3. 배열만들어서, 반복문에 랜덤정수를 10번 push하기 
+  /*  const arr = []; // 1배열 선언
+    
+    for(let i=1; i<=10; i++){
+      arr.push(getRandom(1,100));
+      //console.log(i+" : "+getRandom(1,100)); 
+    }*/
+    
+  //4. 배열에 10개의 랜덤 정수가 담겼는지 확인하고 뉴배열에 정렬된 랜덤수 초기화하기
+    //배열은 ASC(Ascending Order 오름차순) 정렬됨, 숫자형 정렬을 위해선 sort메서드 옵션인 compareFunction을 사용
+    //console.log(arr);
+  /*
+    arr.sort(function(a,b){
+      //리턴값이 -1이면 a를b보다 낮은 요소로 정렬
+      //리턴값이 0이면 동일하게 정렬
+      //리턴값이 1이면 a를 b보다 큰 요소로 정렬
+      return a-b;
+    });
+    console.log(arr);
+  */
+  //5.최댓값, 최솟값 구하기
+  //5-1. for문 이용
+        //if문으로 a<b 라면 참이라는 조건을 주고, 이 값을 min 변수에 담기, 
+        //else문으로 max에 담기 
+  /*      
+    let findMinNum = arr[0];
+    let findMaxNum = arr[0];
+    for(let i=1; i<=arr.length; i++){
+        // 1 < 2 
+      if(arr[i] < findMinNum){
+        findMinNum = arr[i];
+        // 1 > 2 
+      }else if(arr[i] > findMaxNum){
+        findMaxNum = arr[i];
+      }
+      //console.log(arr[i]);
+    }
+  */
+
+  //5-2내장함수 Math.min/Math.max
+    //먼저 테스트를 해보자 
+    //Math.min(1,2,3,4,5)게 해도 최소,최대값을 return하지만 배열로 들어왔을대는 spread operater를 사용해야함
+  /*  console.log(Math.min(1,2,3,4,5));
+    console.log(Math.max(1,2,3,4,5));
+
+    function findMinNum(arr){
+      //아래와 같이 전개 연산자로 배열을 풀어주어서 
+        //전개 연산자(spread operater)란? : ... 점 3개 
+        //ES6의 문법으로, 배열이나 문자열과 같이 반복가능한 객체를 하나씩 펼쳐서 리턴함
+      return Math.min(...arr);
+    }
+    function findMaxNum(arr){
+      return Math.max(...arr);
+    }
+    
+  */
+  //5-3 내장함수 apply
+  /*
+    function findMinNum(arr){
+      //apply의 첫번째 인자는 this에 넘겨주는 객체로서 null처리를 해주고 두번째 인자로서 arr를 넘겨줌
+      return Math.min.apply(null,arr)
+    }
+    function findMaxNum(arr){
+      return Math.max.apply(null,arr);
+    };
+    */
+
+    //8.console.log로 출력하기 
+    //console.log(`가장작은수는 ${findMinNum(arr)}이고, 가장큰수는 ${findMaxNum(arr)} 입니다.`);
+    //console.log(`가장작은수는 ${findMinNum}이고, 가장큰수는 ${findMaxNum} 입니다.`);
+    
+    
+  //6.최종 완성 코드 
+  /*
+  function getRandom(min, max){
+    return Math.floor(Math.random() * (max - min + 1) + min); 
+  }
+
+  const arr = []; 
+    for(let i=1; i<=10; i++){
+    arr.push(getRandom(1,100));
+  }
+
+  arr.sort(function(a,b){
+    return a-b;
+  });
+
+  function findMinNum(arr){
+  return Math.min(...arr);
+  }
+  function findMaxNum(arr){
+  return Math.max(...arr);
+  }
+  console.log(`랜덤수는 : ${arr}`)
+  console.log(`랜덤수 개수는 : ${arr.length}`)
+  console.log(`가장작은수는 ${findMinNum(arr)}이고, 가장큰수는 ${findMaxNum(arr)}입니다.`);
+  */
+
+  //7.리팩토링 코드 
+  function getRandom(min, max){
+    return Math.floor(Math.random() * (max - min + 1) + 1);
+  }
+  //반복문을 통한 랜덤수 생성과, 배열 정렬을 한줄로 통합
+    //Array.form메서드를 사용하여 길이가 10인 배열 생성
+    //배열을 getRandom(1,100)을 호출하여 랜덤 값으로 채움
+    //배열을 화살표 함수를 사용하여 
+    //sort메서드의 매개변수로 비교함수를 전달한다
+    // 여기서 사용된 비교함수는 (a,b) => a - b 오름차순으로 정렬하도록 도와줌
+    // 비교함수에서 a가 b보다 작으면 음수, a가 b보다 크면 양수, 같으면 0을 반환함 
+  const arr = Array.from({length:10}, () => getRandom(1,100)).sort((a,b) => a - b);
+
+  function findMinNum(arr){
+    return Math.min(...arr);
+  }
+  function findMaxNum(arr){
+    return Math.max(...arr);
+  }
+  console.log(arr)
+  console.log(arr.length)
+  console.log(findMinNum(arr))
+  console.log(findMaxNum(arr))
+
+  </script>
+
+
+</body>
+</html>
